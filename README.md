@@ -32,3 +32,110 @@ MAIA é simples, eficiente e intuitiva, proporcionando mais tranquilidade e segu
 - Cruza essas informações com os dados dos anúncios coletados
 - Calcula automaticamente os preços de venda ideais com a margem almejada, ajustando os preços de venda automaticamente.
 - Participa automaticamente de promoções, respeitando o limite máximo de desconto configurado (ex: até 10%)
+
+Configuração e Estrutura do Projeto
+1. Requisitos
+Antes de rodar MAIA (Mercado AI Agent), você precisará garantir que tem os seguintes requisitos instalados:
+
+Python 3.8 ou superior
+
+pip (gerenciador de pacotes Python)
+
+Git (para controle de versão)
+
+Flask para a parte web do projeto
+
+Pandas para manipulação de dados
+
+Apscheduler para agendamentos em background
+
+dotenv para carregar variáveis de ambiente
+
+Requests para interagir com a API do Mercado Livre
+
+2. Como Configurar o Ambiente
+2.1. Clonando o Repositório
+Primeiro, clone o repositório para sua máquina local:
+
+bash
+Copiar
+Editar
+git clone https://github.com/maiaapp25/maia.git
+cd maia
+2.2. Criando e Ativando o Ambiente Virtual
+Para evitar conflitos com outras versões de bibliotecas Python, recomendamos criar um ambiente virtual:
+
+bash
+Copiar
+Editar
+python3 -m venv venv
+Para ativar o ambiente virtual:
+
+Windows:
+
+bash
+Copiar
+Editar
+venv\Scripts\activate
+Mac/Linux:
+
+bash
+Copiar
+Editar
+source venv/bin/activate
+2.3. Instalando Dependências
+Com o ambiente virtual ativado, instale as dependências necessárias:
+
+bash
+Copiar
+Editar
+pip install -r requirements.txt
+Nota: Se o arquivo requirements.txt ainda não existir, podemos criar um mais tarde, incluindo as dependências necessárias.
+
+2.4. Configuração de Variáveis de Ambiente
+O projeto usa um arquivo .env para armazenar informações sensíveis, como credenciais de API. Para configurar o seu ambiente, crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis (você pode obter as credenciais necessárias no Mercado Livre):
+
+bash
+Copiar
+Editar
+MERCADO_LIVRE_APP_ID=<seu-app-id>
+MERCADO_LIVRE_APP_SECRET=<seu-app-secret>
+MERCADO_LIVRE_ACCESS_TOKEN=<seu-access-token>
+Essas variáveis são usadas para autenticar e interagir com a API do Mercado Livre.
+
+2.5. Inicializando o Projeto
+Com as dependências instaladas e as variáveis de ambiente configuradas, você pode iniciar o servidor local:
+
+bash
+Copiar
+Editar
+flask run
+O servidor estará rodando em http://127.0.0.1:5000/. A partir daí, você pode interagir com a automação MAIA.
+
+3. Estrutura de Arquivos
+Aqui está uma visão geral da estrutura do projeto:
+
+bash
+Copiar
+Editar
+maia/
+│
+├── app.py                   # Arquivo principal para rodar o Flask
+├── .env                     # Arquivo de variáveis de ambiente
+├── requirements.txt         # Arquivo com as dependências do projeto
+├── README.md                # Este arquivo de documentação
+└── maia_module/              # Diretório com a lógica do MAIA (funcionalidades)
+    ├── auth.py              # Funções de autenticação com o Mercado Livre
+    ├── scheduler.py         # Lógica de agendamento para monitorar preços
+    └── utils.py             # Funções auxiliares (ex: cálculo de margem)
+3.1. Detalhes do Código
+app.py: É o arquivo principal que roda o servidor Flask.
+
+auth.py: Contém funções responsáveis pela autenticação e interação com a API do Mercado Livre.
+
+scheduler.py: Lida com a execução periódica de tarefas, como monitoramento de preços e promoções.
+
+utils.py: Funções auxiliares usadas em vários lugares do projeto, como cálculos de margens e manipulação de dados.
+
+4. Como Usar
+Agora que o projeto está configurado, o MAIA vai monitorar os anúncios do Mercado Livre e ajustá-los automaticamente para garantir que estejam sempre com a margem líquida correta. Basta fornecer um arquivo com as informações dos produtos e MAIA fará o resto.
