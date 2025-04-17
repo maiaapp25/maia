@@ -139,3 +139,75 @@ utils.py: Funções auxiliares usadas em vários lugares do projeto, como cálcu
 
 4. Como Usar
 Agora que o projeto está configurado, o MAIA vai monitorar os anúncios do Mercado Livre e ajustá-los automaticamente para garantir que estejam sempre com a margem líquida correta. Basta fornecer um arquivo com as informações dos produtos e MAIA fará o resto.
+
+4. Como Rodar o Projeto
+Para rodar o projeto localmente, siga as instruções abaixo:
+
+Clonar o Repositório
+
+No terminal, digite o comando abaixo para clonar o repositório:
+
+bash
+Copiar
+Editar
+git clone https://github.com/maiaapp25/maia.git
+Criar um Ambiente Virtual
+
+No terminal, navegue até o diretório do projeto e crie um ambiente virtual:
+
+bash
+Copiar
+Editar
+python3 -m venv venv
+Ativar o Ambiente Virtual
+
+Para ativar o ambiente, use o seguinte comando:
+
+No Windows:
+
+bash
+Copiar
+Editar
+venv\Scripts\activate
+No macOS/Linux:
+
+bash
+Copiar
+Editar
+source venv/bin/activate
+Instalar as Dependências
+
+Instale as bibliotecas necessárias (depois de ter ativado o ambiente virtual):
+
+bash
+Copiar
+Editar
+pip install -r requirements.txt
+Configurar as Variáveis de Ambiente
+
+Para garantir que o projeto tenha acesso às informações sensíveis, você precisará criar um arquivo .env no diretório raiz do projeto. Esse arquivo pode conter informações como:
+
+Chave da API do Mercado Livre
+
+Credenciais de banco de dados
+
+Configurações adicionais
+
+Exemplo de arquivo .env:
+
+ini
+Copiar
+Editar
+MERCADO_LIVRE_API_KEY=your_api_key_here
+DB_CONNECTION_STRING=your_db_connection_string_here
+Rodar a Aplicação
+
+Depois de configurar tudo, rode a aplicação com o seguinte comando:
+
+bash
+Copiar
+Editar
+python app.py
+Acessar Localmente
+
+A aplicação estará rodando em http://127.0.0.1:5000/. Abra esse endereço no seu navegador para interagir com o projeto.
